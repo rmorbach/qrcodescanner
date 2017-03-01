@@ -40,7 +40,7 @@ class ViewController: UIViewController, QRCodeScannerProtocol {
         self.qrCodeManager.stopReading()
         if content.hasPrefix("http")
         {
-            let openURLAction = UIAlertAction(title: "Abrir URL", style: .default, handler: { alert in
+            let openURLAction = UIAlertAction(title: "Open URL", style: .default, handler: { alert in
                 guard let url = URL(string: content) else
                 {
                     return
@@ -52,11 +52,11 @@ class ViewController: UIViewController, QRCodeScannerProtocol {
                     self.presentedViewController?.dismiss(animated: true, completion: nil)
             })
             
-            AlertHelper.showConfirm(title: "URL", message: "Deseja abrir \(content) ?", actions: [dismissAction, openURLAction], fromViewController: self)
+            AlertHelper.showConfirm(title: "URL", message: "Wish to open \(content) ?", actions: [dismissAction, openURLAction], fromViewController: self)
             
         }else
         {
-            AlertHelper.showAlert(title: "Conteúdo", message: content, dismissTitle: "OK", fromViewController: self)
+            AlertHelper.showAlert(title: "Content", message: content, dismissTitle: "OK", fromViewController: self)
         }
     }
 }
